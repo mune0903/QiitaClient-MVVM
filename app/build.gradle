@@ -53,4 +53,6 @@ dependencies {
     implementation Libs.groupie
     implementation Libs.groupieKotlin
     implementation Libs.groupieDatabinding
+    implementation Libs.viewModel
+    implementation Libs.lifecycle
 }
