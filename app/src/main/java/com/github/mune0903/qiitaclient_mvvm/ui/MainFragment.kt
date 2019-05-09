@@ -44,6 +44,9 @@ class MainFragment : Fragment() {
 
     companion object {
 
+        // タグをつけることでActivityでFragmentの識別が可能になる
+        val TAG: String = MainFragment::class.java.simpleName
+
         // Javaから呼ばれる可能性のあるコードはJvmStaticアノテーションをつける
         @JvmStatic
         fun newInstance() = MainFragment()

@@ -8,6 +8,12 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // databinding使うほどでもないので割愛
         setContentView(R.layout.activity_main)
+        // Fragmentをセットする
+        supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.fragment_container, MainFragment.newInstance(), MainFragment.TAG)
+                .commit()
     }
 }
