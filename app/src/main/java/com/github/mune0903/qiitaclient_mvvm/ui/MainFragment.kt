@@ -1,4 +1,4 @@
-package com.github.mune0903.qiitaclient_mvvm
+package com.github.mune0903.qiitaclient_mvvm.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import com.github.mune0903.qiitaclient_mvvm.R
 import com.github.mune0903.qiitaclient_mvvm.databinding.FragmentMainBinding
 
 

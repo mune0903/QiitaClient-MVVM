@@ -1,7 +1,8 @@
-package com.github.mune0903.qiitaclient_mvvm
+package com.github.mune0903.qiitaclient_mvvm.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.github.mune0903.qiitaclient_mvvm.R
 
 class MainActivity : AppCompatActivity() {
 
