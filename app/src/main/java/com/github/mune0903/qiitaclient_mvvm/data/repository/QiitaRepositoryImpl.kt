@@ -2,7 +2,7 @@ package com.github.mune0903.qiitaclient_mvvm.data.repository
 
 import com.github.mune0903.qiitaclient_mvvm.data.remote.client.QiitaClient
 import com.github.mune0903.qiitaclient_mvvm.data.remote.model.Article
-import com.github.mune0903.qiitaclient_mvvm.observeOnMainThread
+import com.github.mune0903.qiitaclient_mvvm.util.extension.observeOnMainThread
 import io.reactivex.Observable
 import retrofit2.Retrofit
 
