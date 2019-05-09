@@ -40,6 +40,8 @@ class MainFragment : Fragment() {
     // データのfetchやUI操作に関わる処理はonViewCreatedで実行する
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        // UIにMainViewModelを渡す
+        binding.viewModel = viewModel
     }
 
     companion object {

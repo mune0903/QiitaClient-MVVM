@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.github.mune0903.qiitaclient_mvvm">
 
+    <!-- ネット接続するためのパーミッション 必要だけど忘れがち -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".App"
         android:allowBackup="true"

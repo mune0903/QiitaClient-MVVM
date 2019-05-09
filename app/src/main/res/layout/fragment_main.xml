@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
 
+    <data>
+        <!--
+        MainViewModelのメンバを参照することができる
+        MainFragmentの
+        binding.viewModel = viewModel
+        の部分でここにMainViewModelを渡してる
+        -->
+        <variable
+            name="viewModel"
+            type="com.github.mune0903.qiitaclient_mvvm.ui.MainViewModel" />
+    </data>
+
+    <!--
+    時代はConstraintLayout
+    ConstraintLayoutを使うことで端末ごとの解像度の違いに対応できる
+     -->
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
