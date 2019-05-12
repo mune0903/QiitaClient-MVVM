@@ -1,3 +1,5 @@
+import sun.misc.Version
+
 object Libs {
     object Versions {
         val rxKotlin = "2.3.0"
@@ -10,6 +12,7 @@ object Libs {
         val moshi = "1.8.0"
         val groupie = "2.3.0"
         val lifecycle = "2.0.0"
+        val recyclerView = "27.1.1"
     }
 
     val rxKotlin = "io.reactivex.rxjava2:rxkotlin:${Versions.rxKotlin}"
@@ -27,4 +30,5 @@ object Libs {
     val groupieDatabinding = "com.xwray:groupie-databinding:${Versions.groupie}"
     val viewModel = "androidx.lifecycle:lifecycle-viewmodel:${Versions.lifecycle}}"
     val lifecycle = "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycle}"
+    val recyclerView = "com.android.support:recyclerview-v7:${Versions.recyclerView}"
 }

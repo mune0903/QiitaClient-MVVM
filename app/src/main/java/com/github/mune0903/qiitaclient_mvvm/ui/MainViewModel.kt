@@ -5,7 +5,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.github.mune0903.qiitaclient_mvvm.data.remote.model.Article
 import com.github.mune0903.qiitaclient_mvvm.data.repository.QiitaRepository
+import com.github.mune0903.qiitaclient_mvvm.util.extension.observeOnMainThread
 import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.rxkotlin.addTo
 
 class MainViewModel(
         private val qiitaRepository: QiitaRepository
@@ -22,6 +24,11 @@ class MainViewModel(
         // TODO
         // Fragmentから呼ぶ
         // repositoryのsearchArticleメソッドを呼ぶ
+        qiitaRepository.searchArticle(keyword)
+            .observeOnMainThread()
+            .subscribe({
+                _articles.value = it
+            }).addTo(disposable)
     }
 
     // FragmentのDetach後に呼ばれる
