@@ -39,4 +39,8 @@ class MainViewModel(
         super.onCleared()
         disposable.clear()
     }
+
+    interface OnItemClickListener    {
+        fun OnItemClickListener(article: Article)
+    }
 }
