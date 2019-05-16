@@ -13,6 +13,7 @@ object Libs {
         val groupie = "2.3.0"
         val lifecycle = "2.0.0"
         val recyclerView = "27.1.1"
+        val glide = "4.9.0"
     }
 
     val rxKotlin = "io.reactivex.rxjava2:rxkotlin:${Versions.rxKotlin}"
@@ -31,4 +32,6 @@ object Libs {
     val viewModel = "androidx.lifecycle:lifecycle-viewmodel:${Versions.lifecycle}}"
     val lifecycle = "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycle}"
     val recyclerView = "com.android.support:recyclerview-v7:${Versions.recyclerView}"
+    val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
+    val glideAnnotation = "com.github.bumptech.glide:compiler:${Versions.glide}"
 }
