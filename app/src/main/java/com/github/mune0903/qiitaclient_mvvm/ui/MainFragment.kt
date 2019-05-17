@@ -8,17 +8,20 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.github.mune0903.qiitaclient_mvvm.R
+import com.github.mune0903.qiitaclient_mvvm.data.remote.model.Article
 import com.github.mune0903.qiitaclient_mvvm.databinding.FragmentMainBinding
 import com.github.mune0903.qiitaclient_mvvm.util.factory.ViewModelFactory
 
 
-class MainFragment : Fragment() {
+class MainFragment : Fragment(), ArticleRecyclerAdapter.OnItemClickListener {
 
     // viewにアクセスするやつ
     private lateinit var binding: FragmentMainBinding
 
     // ViewModel
     private lateinit var viewModel: MainViewModel
+
+    private val adapter = ArticleRecyclerAdapter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,8 +32,10 @@ class MainFragment : Fragment() {
         })
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         // databindingの設定
         val view = inflater.inflate(R.layout.fragment_main, container, false)
         binding = FragmentMainBinding.bind(view)
@@ -42,6 +47,10 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         // UIにMainViewModelを渡す
         binding.viewModel = viewModel
+    }
+
+    override fun onItemClick(article: Article) {
+        // TODO 遷移の処理
     }
 
     companion object {

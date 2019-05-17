@@ -59,4 +59,8 @@ dependencies {
     implementation Libs.groupieDatabinding
     implementation Libs.viewModel
     implementation Libs.lifecycle
+    implementation Libs.recyclerView
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation Libs.glide
+    annotationProcessor Libs.glideAnnotation
 }

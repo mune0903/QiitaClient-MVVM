@@ -1,1 +1,1 @@
-/Users/keita/AndroidStudioProjects/QiitaClientMVVM/buildSrc/build/classes/kotlin/main/Libs$Versions.class:/Users/keita/AndroidStudioProjects/QiitaClientMVVM/buildSrc/build/classes/kotlin/main/Libs.class
+/Users/tajiri-munenori/Android/QiitaClient-MVVM/buildSrc/build/classes/kotlin/main/Libs$Versions.class:/Users/tajiri-munenori/Android/QiitaClient-MVVM/buildSrc/build/classes/kotlin/main/Libs.class
