@@ -29,6 +29,7 @@ class MainFragment : Fragment(), ArticleRecyclerAdapter.OnItemClickListener {
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(MainViewModel::class.java)
         viewModel.articles.observe(this, Observer { articles ->
             // TODO データを取ってきた後の処理を書く
+            viewModel.search("hoge")
         })
     }
 
