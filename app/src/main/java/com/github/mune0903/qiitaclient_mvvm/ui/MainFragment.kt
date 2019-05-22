@@ -29,6 +29,13 @@ class MainFragment : Fragment(), ArticleRecyclerAdapter.OnItemClickListener {
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(MainViewModel::class.java)
         viewModel.articles.observe(this, Observer { articles ->
             // TODO データを取ってきた後の処理を書く
+            articles?.let {
+                val articleArray = it as ArrayList<Article>
+                adapter.run {
+                    userActions.addAll(articleArray)
+                    notifyDataSetChanged()
+                }
+            }
         })
     }
 
@@ -47,6 +54,8 @@ class MainFragment : Fragment(), ArticleRecyclerAdapter.OnItemClickListener {
         super.onViewCreated(view, savedInstanceState)
         // UIにMainViewModelを渡す
         binding.viewModel = viewModel
+        // TODO RecyclerViewの設定
+
     }
 
     override fun onItemClick(article: Article) {
