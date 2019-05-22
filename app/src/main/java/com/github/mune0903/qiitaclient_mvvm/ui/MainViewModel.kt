@@ -34,6 +34,10 @@ class MainViewModel(
             }).addTo(disposable)
     }
 
+    fun onButtonClick() {
+        // TODO ボタン押した処理
+    }
+
     // FragmentのDetach後に呼ばれる
     override fun onCleared() {
         super.onCleared()

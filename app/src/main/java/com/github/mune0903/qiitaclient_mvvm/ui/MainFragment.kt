@@ -32,6 +32,7 @@ class MainFragment : Fragment(), ArticleRecyclerAdapter.OnItemClickListener {
             articles?.let {
                 val articleArray = it as ArrayList<Article>
                 adapter.run {
+                    userActions.clear()
                     userActions.addAll(articleArray)
                     notifyDataSetChanged()
                 }
@@ -52,10 +53,10 @@ class MainFragment : Fragment(), ArticleRecyclerAdapter.OnItemClickListener {
     // データのfetchやUI操作に関わる処理はonViewCreatedで実行する
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        searchButton()
         // TODO RecyclerViewの設定
         setupRecyclerView()
         // TODO ボタン処理
+        onClickButton()
         // UIにMainViewModelを渡す
         binding.viewModel = viewModel
     }
@@ -72,7 +73,7 @@ class MainFragment : Fragment(), ArticleRecyclerAdapter.OnItemClickListener {
         }
     }
 
-    private fun searchButton() {
+    private fun onClickButton() {
         binding.searchButton.setOnClickListener {
             viewModel.search(binding.queryEditText.text.toString())
         }
