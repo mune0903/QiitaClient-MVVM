@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.github.mune0903.qiitaclient_mvvm.R
 import com.github.mune0903.qiitaclient_mvvm.data.remote.model.Article
 import com.github.mune0903.qiitaclient_mvvm.databinding.FragmentMainBinding
@@ -28,7 +29,6 @@ class MainFragment : Fragment(), ArticleRecyclerAdapter.OnItemClickListener {
         val viewModelFactory = ViewModelFactory()
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(MainViewModel::class.java)
         viewModel.articles.observe(this, Observer { articles ->
-            // TODO データを取ってきた後の処理を書く
             articles?.let {
                 val articleArray = it as ArrayList<Article>
                 adapter.run {
@@ -52,14 +52,30 @@ class MainFragment : Fragment(), ArticleRecyclerAdapter.OnItemClickListener {
     // データのfetchやUI操作に関わる処理はonViewCreatedで実行する
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        searchButton()
+        // TODO RecyclerViewの設定
+        setupRecyclerView()
+        // TODO ボタン処理
         // UIにMainViewModelを渡す
         binding.viewModel = viewModel
-        // TODO RecyclerViewの設定
-
     }
 
     override fun onItemClick(article: Article) {
         // TODO 遷移の処理
+    }
+
+    private fun setupRecyclerView() {
+        binding.recyclerView.apply {
+            setHasFixedSize(true)
+            layoutManager = LinearLayoutManager(requireContext())
+            adapter = this@MainFragment.adapter
+        }
+    }
+
+    private fun searchButton() {
+        binding.searchButton.setOnClickListener {
+            viewModel.search(binding.queryEditText.text.toString())
+        }
     }
 
     companion object {
