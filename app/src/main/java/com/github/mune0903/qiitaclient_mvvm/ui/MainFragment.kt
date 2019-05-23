@@ -62,8 +62,6 @@ class MainFragment : Fragment(), ArticleRecyclerAdapter.OnItemClickListener {
         super.onViewCreated(view, savedInstanceState)
         // RecyclerViewの設定
         setupRecyclerView()
-        // ボタン処理
-        onClickButton()
         // UIにMainViewModelを渡す
         binding.viewModel = viewModel
     }
@@ -78,12 +76,6 @@ class MainFragment : Fragment(), ArticleRecyclerAdapter.OnItemClickListener {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(requireContext())
             adapter = this@MainFragment.adapter
-        }
-    }
-
-    private fun onClickButton() {
-        binding.searchButton.setOnClickListener {
-            viewModel.search(binding.queryEditText.text.toString())
         }
     }
 
