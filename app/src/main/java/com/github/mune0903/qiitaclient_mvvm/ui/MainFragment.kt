@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.github.mune0903.qiitaclient_mvvm.R
 import com.github.mune0903.qiitaclient_mvvm.data.remote.model.Article
 import com.github.mune0903.qiitaclient_mvvm.databinding.FragmentMainBinding
+import com.github.mune0903.qiitaclient_mvvm.ui.article.ArticleActivity
 import com.github.mune0903.qiitaclient_mvvm.util.factory.ViewModelFactory
 
 
@@ -29,7 +30,7 @@ class MainFragment : Fragment(), ArticleRecyclerAdapter.OnItemClickListener {
         val viewModelFactory = ViewModelFactory()
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(MainViewModel::class.java)
         // データの処理
-        viewModel.apply{
+        viewModel.apply {
             articles.observe(this@MainFragment, Observer { articles ->
                 articles?.let {
                     val articleArray = it as ArrayList<Article>
@@ -68,8 +69,8 @@ class MainFragment : Fragment(), ArticleRecyclerAdapter.OnItemClickListener {
     }
 
     override fun onItemClick(article: Article) {
-        // TODO 遷移の処理
-
+        val intent = ArticleActivity.createIntent(requireActivity(), article)
+        startActivity(intent)
     }
 
     private fun setupRecyclerView() {
