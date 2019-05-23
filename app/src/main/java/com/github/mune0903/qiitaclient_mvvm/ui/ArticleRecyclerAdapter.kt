@@ -9,7 +9,7 @@ import com.github.mune0903.qiitaclient_mvvm.databinding.ItemArticleBinding
 
 class ArticleRecyclerAdapter(private val listener: OnItemClickListener) :
     RecyclerView.Adapter<ArticleRecyclerAdapter.ViewHolder>() {
-    //TODO
+
     val userActions = ArrayList<Article>()
 
     override fun getItemCount(): Int = userActions.size

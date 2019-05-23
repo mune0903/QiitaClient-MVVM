@@ -21,8 +21,11 @@ class MainViewModel(
     // Fragmentでarticlesを監視する
     val articles: LiveData<List<Article>> = _articles
 
+    private val _onButtonClick = MutableLiveData<Unit>()
+
+    val onButtonClick: LiveData<Unit> = _onButtonClick
+
     fun search(keyword: String) {
-        // TODO
         // Fragmentから呼ぶ
         // repositoryのsearchArticleメソッドを呼ぶ
         qiitaRepository.searchArticle(keyword)
@@ -36,6 +39,7 @@ class MainViewModel(
 
     fun onButtonClick() {
         // TODO ボタン押した処理
+        _onButtonClick.value = Unit
     }
 
     // FragmentのDetach後に呼ばれる

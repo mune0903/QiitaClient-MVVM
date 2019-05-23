@@ -28,16 +28,22 @@ class MainFragment : Fragment(), ArticleRecyclerAdapter.OnItemClickListener {
         super.onCreate(savedInstanceState)
         val viewModelFactory = ViewModelFactory()
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(MainViewModel::class.java)
-        viewModel.articles.observe(this, Observer { articles ->
-            articles?.let {
-                val articleArray = it as ArrayList<Article>
-                adapter.run {
-                    userActions.clear()
-                    userActions.addAll(articleArray)
-                    notifyDataSetChanged()
+        // データの処理
+        viewModel.apply{
+            articles.observe(this@MainFragment, Observer { articles ->
+                articles?.let {
+                    val articleArray = it as ArrayList<Article>
+                    adapter.run {
+                        userActions.clear()
+                        userActions.addAll(articleArray)
+                        notifyDataSetChanged()
+                    }
                 }
-            }
-        })
+            })
+            onButtonClick.observe(this@MainFragment, Observer {
+                search(binding.queryEditText.text.toString())
+            })
+        }
     }
 
     override fun onCreateView(
@@ -53,9 +59,9 @@ class MainFragment : Fragment(), ArticleRecyclerAdapter.OnItemClickListener {
     // データのfetchやUI操作に関わる処理はonViewCreatedで実行する
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        // TODO RecyclerViewの設定
+        // RecyclerViewの設定
         setupRecyclerView()
-        // TODO ボタン処理
+        // ボタン処理
         onClickButton()
         // UIにMainViewModelを渡す
         binding.viewModel = viewModel
@@ -63,6 +69,7 @@ class MainFragment : Fragment(), ArticleRecyclerAdapter.OnItemClickListener {
 
     override fun onItemClick(article: Article) {
         // TODO 遷移の処理
+
     }
 
     private fun setupRecyclerView() {

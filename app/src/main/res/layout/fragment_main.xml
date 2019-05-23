@@ -21,8 +21,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".ui.MainFragment"
-            android:onClick="@{() -> viewModel.onButtonClick()}">
+            tools:context=".ui.MainFragment">
 
         <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_view"
@@ -46,6 +45,7 @@
                 android:layout_marginStart="8dp"/>
 
         <Button
+                android:onClick="@{() -> viewModel.onButtonClick()}"
                 android:text="検索"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
